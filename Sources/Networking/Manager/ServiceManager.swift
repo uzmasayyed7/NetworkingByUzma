@@ -9,7 +9,7 @@ import Foundation
 
 public class ServiceManager {
     public static let shared = ServiceManager()
-    func callService<T: Decodable>(urlString: String, method: HTTPMethod, success: @escaping ((T) -> Void), fail: @escaping ((HTTPError) -> Void)) {
+    public func callService<T: Decodable>(urlString: String, method: HTTPMethod, success: @escaping ((T) -> Void), fail: @escaping ((HTTPError) -> Void)) {
         let url = URL(string: urlString)
         guard let urlObj = url else {
             fail(.urlFailed)
